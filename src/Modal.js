@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import Styles from './modal.module.css';
+import React,{ useState } from 'react';
+import './modal.css';
 
 function Modal({ open, close }) {
 	const [modal, setModal] = useState(false);
@@ -10,21 +10,21 @@ function Modal({ open, close }) {
 	return (
 		<>
 			<button
-				className={Styles.openBtn}
+				className='openBtn'
 				onClick={toggleModal}>
 				{open}
 			</button>
 
 			{modal && (
-				<div className={Styles.modal}>
+				<div className='modal'>
 					<div
-						className={Styles.overlay}
+						className='.overlay'
 						onClick={toggleModal}></div>
-					<div className={Styles.content}>
+					<div className='content'>
 						<p>Employee Created! </p>
 					</div>
 					<button
-						className={Styles.closeBtn}
+						className='closeBtn'
 						onClick={toggleModal}>
 						{close}
 					</button>
