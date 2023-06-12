@@ -10,26 +10,17 @@
 
 	function Modal({
 	  open,
-	  close
+	  children,
+	  onClose
 	}) {
-	  const [modal, setModal] = React.useState(false);
-	  const toggleModal = () => {
-	    setModal(!modal);
-	  };
-	  return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement("button", {
-	    className: "openBtn",
-	    onClick: toggleModal
-	  }, open), modal && /*#__PURE__*/React__default["default"].createElement("div", {
-	    className: "modal"
-	  }, /*#__PURE__*/React__default["default"].createElement("div", {
-	    className: ".overlay",
-	    onClick: toggleModal
-	  }), /*#__PURE__*/React__default["default"].createElement("div", {
-	    className: "content"
-	  }, /*#__PURE__*/React__default["default"].createElement("p", null, "Employee Created! ")), /*#__PURE__*/React__default["default"].createElement("button", {
+	  if (!open) return null;
+	  return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement("div", {
+	    className: "overlay",
+	    onClick: onClose
+	  }), children, /*#__PURE__*/React__default["default"].createElement("button", {
 	    className: "closeBtn",
-	    onClick: toggleModal
-	  }, close)));
+	    onClick: onClose
+	  }, "X"));
 	}
 	module.exports = Modal;
 
